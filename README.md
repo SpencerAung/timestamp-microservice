@@ -1,1 +1,1 @@
-# node-seed
+# Node Boilerplate

@@ -64,3 +64,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Git origin file
+*.orig
+
+# Application config file
+server/config/config.json
