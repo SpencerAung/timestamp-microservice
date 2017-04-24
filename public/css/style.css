@@ -1,0 +1,12 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+}
+.container {
+  text-align: left;
+  padding: 4rem;
+}
+.about {
+  text-align: left;
+}
