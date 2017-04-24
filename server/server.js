@@ -9,7 +9,7 @@ const assert = require('assert');
 const _ = require('lodash');
 const cookieParser = require('cookie-parser')
 
-const {mongoose} = require('./db/mongoose');
+var timestampRoutesV1 = require('./routes/v1/timestampRoutes');
 
 const publicPath = path.join(__dirname + './../public');
 const port = process.env.PORT;
@@ -18,8 +18,6 @@ var app = express();
 var server = app.listen(port, () => {
 	console.log(`Server running on port ${port}`);
 });
-
-
 
 app.use(compression());
 app.use(express.static(publicPath));
@@ -31,13 +29,12 @@ app.set('views', __dirname + "/views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 app.get('/', (req, res) => {
   res.send('Timestamp');
 });
+
+app.use('/v1/timestamp', timestampRoutesV1);
 
 app.use((req,res) => {
 	res.status(404).send("Page Not Found.");
